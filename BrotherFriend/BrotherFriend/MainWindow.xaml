@@ -1,0 +1,101 @@
+﻿<Window x:Class="BrotherFriend.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BrotherFriend"
+        mc:Ignorable="d"
+        Title="BrotheFriend" Height="663.051" Width="966.605">
+    <Window.Resources>
+        <Storyboard x:Key="WhatCanDo_Displace">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="rectangle">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="300"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="rectangle1">
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.7" Value="150"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+    </Window.Resources>
+    <Window.Triggers>
+        <EventTrigger RoutedEvent="UIElement.MouseDown" SourceName="rectangle2">
+            <BeginStoryboard Storyboard="{StaticResource WhatCanDo_Displace}"/>
+        </EventTrigger>
+    </Window.Triggers>
+    <Grid>
+        <Rectangle x:Name="rectangle" HorizontalAlignment="Left" Height="125.806" Margin="75.761,309.942,0,0" Stroke="#FF8D8D8D" VerticalAlignment="Top" Width="111.684" RadiusY="2.881" RadiusX="2.881" RenderTransformOrigin="0.5,0.5">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+            <Rectangle.Fill>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="White" Offset="0.531"/>
+                    <GradientStop Color="#FFF9F9F9" Offset="0.536"/>
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+
+        <Rectangle x:Name="rectangle1" HorizontalAlignment="Left" Height="125.806" Margin="65.914,309.942,0,0" Stroke="#FF8D8D8D" VerticalAlignment="Top" Width="111.684" RadiusY="2.881" RadiusX="2.881" RenderTransformOrigin="0.5,0.5">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+            <Rectangle.Fill>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="White" Offset="0.531"/>
+                    <GradientStop Color="#FFF9F9F9" Offset="0.536"/>
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+
+        <Rectangle Fill="White" HorizontalAlignment="Left" Height="37" Margin="79,572,0,0" Stroke="#FFAEAEAE" VerticalAlignment="Top" Width="806" RadiusY="11.113" RadiusX="11.113" AutomationProperties.HelpText="Dile algo a BrothetFriend"/>
+        <Rectangle x:Name="rectangle2" HorizontalAlignment="Left" Height="125.806" Margin="56.069,309.942,0,0" Stroke="#FF8D8D8D" VerticalAlignment="Top" Width="111.684" RadiusY="2.881" RadiusX="2.881">
+            <Rectangle.Fill>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="White" Offset="0.531"/>
+                    <GradientStop Color="#FFF9F9F9" Offset="0.536"/>
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle HorizontalAlignment="Left" Height="52.511" Margin="88.987,319.788,0,0" RadiusY="2.881" RadiusX="2.881" Stroke="White" VerticalAlignment="Top" Width="55.792">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="1497768261_cloud.png"/>
+            </Rectangle.Fill>
+        </Rectangle>
+        <RichTextBox x:Name="richTextBox" HorizontalAlignment="Left" Height="25" VerticalAlignment="Top" Width="615" Margin="97,578,0,0" SpellCheck.IsEnabled="True" BorderThickness="0" FontSize="20" FontFamily="Noto Sans">
+            <RichTextBox.BorderBrush>
+                <SolidColorBrush Color="#FFABADB3" Opacity="0"/>
+            </RichTextBox.BorderBrush>
+            <FlowDocument>
+                <Paragraph>
+                    <Run Text="Dile algo a BrotherFriend"/>
+                </Paragraph>
+            </FlowDocument>
+        </RichTextBox>
+        <Button x:Name="button" HorizontalAlignment="Left" VerticalAlignment="Top" Width="23" Margin="833,577,0,0" Height="21">
+            <Button x:Name="button1" Content="Button" Width="75" BorderThickness="0" IsDefault="True" Click="button1_Click">
+                <Button.Background>
+                    <SolidColorBrush Color="White"/>
+                </Button.Background>
+                <Button.BorderBrush>
+                    <SolidColorBrush Color="White" Opacity="0"/>
+                </Button.BorderBrush>
+            </Button>
+        </Button>
+        <ScrollViewer x:Name="messages" Height="397" Margin="201,105,65,0" VerticalAlignment="Top" CanContentScroll="True" MaxWidth="693" VerticalScrollBarVisibility="Auto" HorizontalAlignment="Center" Width="693" HorizontalContentAlignment="Center">
+            <StackPanel x:Name="panel" HorizontalAlignment="Center" Height="392" VerticalAlignment="Top" Width="680" CanVerticallyScroll="True" ScrollViewer.CanContentScroll="True" Margin="0"/>
+        </ScrollViewer>
+
+
+    </Grid>
+</Window>
